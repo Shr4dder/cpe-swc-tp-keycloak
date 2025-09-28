@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations Utilisateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .info-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+
+        .info-container p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .info-container strong {
+            color: #333;
+        }
+
+        .roles {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .roles li {
+            background-color: #e9e9e9;
+            padding: 5px;
+            margin: 3px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Informations de l'utilisateur</h1>
+
+    <div class="info-container">
+        <p><strong>Access Token (JWT) :</strong> {{ account_info['access_token'] }}</p>
+        <p><strong>Refresh Token (JWT) :</strong> {{ account_info['refresh_token'] }}</p>
+        
+        <p><strong>Roles du Realm :</strong></p>
+        {% if account_info['realm_roles'] %}
+            <ul class="roles">
+                {% for role in account_info['realm_roles'] %}
+                    <li>{{ role }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun rôle trouvé</p>
+        {% endif %}
+
+        <p><strong>Email :</strong> {{ account_info['email'] }}</p>
+        <p><strong>Prénom :</strong> {{ account_info['first_name'] }}</p>
+        <p><strong>Nom :</strong> {{ account_info['last_name'] }}</p>
+    </div>
+
+</body>
+</html>

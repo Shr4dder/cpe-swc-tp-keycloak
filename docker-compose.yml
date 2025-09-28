@@ -6,7 +6,7 @@ services:
       KEYCLOAK_URL: http://keycloak:8080
       KEYCLOAK_REALM: webapp
       KEYCLOAK_CLIENT_ID: webapp-backend
-      KEYCLOAK_CLIENT_SECRET: <put-keycloak-client-secret-here>
+      KEYCLOAK_CLIENT_SECRET: 7hu5DlmdNE7x1Aw1mhGP0SmXP1Yd01NK
     volumes:
       - ./webapp:/webapp
     ports:
